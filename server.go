@@ -13,11 +13,10 @@ func main() {
 	}
 	defer db.Close()
 
-	router := gin.Default()
-	
-	router.GET("/", serveHTML)
-	router.POST("/secrets", createSecret(db))
-	router.GET("/secrets/:id", getSecret(db))
+	r := gin.Default()
 
-	log.Fatal(router.Run(":8080"))
+	r.POST("/secrets", CreateSecret(db))
+	r.POST("/secrets/:id", GetSecret(db))
+
+	r.Run(":8080")
 }
