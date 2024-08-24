@@ -3,6 +3,9 @@ import { LocationProvider, Router, Route } from 'preact-iso';
 
 import { Home } from './pages/home.js';
 import { NotFound } from './pages/_404.jsx';
+import { Get } from './pages/get.js';
+import { Create } from './pages/create.js';
+
 import './style.css';
 
 export function App() {
@@ -12,8 +15,8 @@ export function App() {
 				<div class={"flex flex-1 flex-col items-center justify-center"}>
 					<Router>
 						<Route path="/" component={Home} />
-						<Route path="/secrets" component={Home} />
-						<Route path="/secrets/:id" component={Home} />
+						<Route path="/secrets" component={Create} />
+						<Route path="/secrets/:id" component={Get} />
 						<Route default component={NotFound} />
 					</Router>
 				</div>
